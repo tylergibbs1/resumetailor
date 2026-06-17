@@ -1,0 +1,14 @@
+# Personal resume sources — not for the public repo
+tyler-resume.typ
+tyler_about/
+
+# Tailored outputs (per-application, often contain personal data)
+tailored/*
+!tailored/.gitkeep
+
+# Local Claude Code skill symlink (canonical skill lives in skills/)
+.claude/
+
+# Build artifacts and OS cruft
+*.pdf
+.DS_Store

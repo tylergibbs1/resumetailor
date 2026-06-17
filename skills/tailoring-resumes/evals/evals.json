@@ -1,0 +1,55 @@
+{
+  "skill_name": "tailoring-resumes",
+  "evals": [
+    {
+      "skills": ["tailoring-resumes"],
+      "query": "Tailor my resume for this Senior AI Engineer role at Acme. Requirements: Python, RAG pipelines, LLM evaluation, AWS, and Kubernetes in production. (paste the JD)",
+      "files": ["resume.typ", "about/background.md"],
+      "expected_behavior": [
+        "Locates the resume .typ file and the background .md file, and reads both before editing",
+        "Extracts the JD's exact keywords (Python, RAG, LLM evaluation, AWS, Kubernetes) into tailored/keywords.txt",
+        "Copies the master to tailored/<company>-<role>.typ and edits the copy, never overwriting the master resume",
+        "Surfaces true RAG/eval/AWS experience and uses the JD's exact terms, expanding acronyms once (e.g., Retrieval-Augmented Generation (RAG))",
+        "Does NOT add Kubernetes if it is not supported by the candidate's materials; reports it as a gap instead of fabricating it",
+        "Compiles with compile_check.sh and confirms the result is exactly one page",
+        "Runs keyword_check.py against the PDF and reports coverage plus honest gaps"
+      ]
+    },
+    {
+      "skills": ["tailoring-resumes"],
+      "query": "This job wants a Salesforce Administrator with 5 years of Apex and Visualforce. Make my resume match it.",
+      "files": ["resume.typ", "about/background.md"],
+      "expected_behavior": [
+        "Reads the candidate's materials and recognizes when the role does not match their actual background",
+        "Refuses to fabricate Apex/Visualforce/Salesforce experience to pass the ATS",
+        "Clearly reports the mismatch and the gaps rather than producing a dishonest resume",
+        "Flags the '5 years' requirement as a likely knockout question on the application form",
+        "Does not silently keyword-stuff the skills line with unrelated terms"
+      ]
+    },
+    {
+      "skills": ["tailoring-resumes"],
+      "query": "I added three new bullets to make my resume match this staff engineer JD and now it's running onto a second page. Fix it.",
+      "files": ["resume.typ", "about/background.md"],
+      "expected_behavior": [
+        "Compiles and confirms the overflow with compile_check.sh (page count, not eyeballing)",
+        "Trims the lowest-relevance content (tightens or drops weak bullets) rather than shrinking font, margins, or leading",
+        "Preserves the template structure, sections, and twocol/heading definitions",
+        "Recompiles and verifies the result is exactly one page before finishing",
+        "Re-checks keyword coverage after trimming to confirm nothing critical was lost"
+      ]
+    },
+    {
+      "skills": ["tailoring-resumes"],
+      "query": "Optimize my resume so it gets past the resume screener for this MLOps role — it mentions MLOps, CI/CD, Docker, Terraform, and model monitoring a lot.",
+      "files": ["resume.typ", "about/background.md"],
+      "expected_behavior": [
+        "Explains ATS keyword matching: uses the JD's exact strings (MLOps, CI/CD, Docker, Terraform, model monitoring)",
+        "Reorders the Skills lines and experience bullets to surface the true, JD-relevant terms first",
+        "Keeps job-critical keywords in the left content column, not the right-hand date column",
+        "Ensures the PDF text is extractable and verifies coverage from the compiled PDF with keyword_check.py",
+        "Keeps the resume to one page and preserves the existing format"
+      ]
+    }
+  ]
+}

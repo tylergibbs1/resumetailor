@@ -1,0 +1,11 @@
+{
+  "name": "resumetailor",
+  "description": "Tailors a Typst resume to a specific job description to pass automated resume screening (ATS), preserving the existing format and one-page limit.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tyler Gibbs"
+  },
+  "skills": [
+    "./skills/tailoring-resumes"
+  ]
+}
