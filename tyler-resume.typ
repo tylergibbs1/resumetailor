@@ -8,7 +8,7 @@
     right: 1.5cm,
   ),
   // In the bottom margin, so body text can never run into it
-  footer: align(right, text(size: 8pt, fill: gray, style: "italic")[Last updated: Oct 2026]),
+  footer: align(right, text(size: 8pt, fill: gray, style: "italic")[Last updated: Nov 2026]),
 )
 
 #set text(
@@ -116,9 +116,9 @@ Mission-driven AI engineer and founder, focused on bringing critical industries 
 = Selected Projects
 
 #block(inset: (left: 0.5cm))[
+  - *#text(fill: blue)[#link("https://tylergibbs.dev/projects/darpa-d2-qualifier")[DARPA D2 Qualifier]]:* From one photo of a casualty, labels each limb as no injury, wound, amputation, or not testable, offline on one GPU (frozen DINOv2-L, limb localizer, RF-DETR wound detector). Scored *85.9%* on *212* never-seen photos against a *78%* target, after *118* logged experiments took cross-validated accuracy from *71.3%* to *85.8%*.
   - *Dialect:* Lets AI agents read the physical world through cameras: an agent proposes typed fields from regions of the frame, a person confirms them, and a Raspberry Pi gateway keeps them current over REST and MCP (FastAPI, PostgreSQL, AWS ECS/RDS, Terraform).
   - *#text(fill: blue)[#link("https://youtu.be/q240DAB6ssE")[Project Foresight]]:* A JEPA-style world model for an SO-101 robot arm. It predicts future camera embeddings from the arm's commanded actions and flags unexpected physical events live, such as a hand entering the workspace, with *\~0.1 s* response.
-  - *#text(fill: blue)[#link("https://tylergibbs.dev/blog/training-in-orbit")[Training in Orbit]]:* A *45-experiment* study of transformer pretraining under simulated space radiation: undefended runs crashed at *10x* low-Earth-orbit radiation, while software-only fault-aware training stayed stable up to *10,000x* at a fixed *3.2%* quality cost.
 ]
 
 = Technical Skills
